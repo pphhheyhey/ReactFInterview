@@ -37,6 +37,16 @@ const ListPage = () => {
 
   const columns = [
     {
+      title: 'Avatar',
+      dataIndex: 'avatar',
+      key: 'avatar',
+      width: 64,
+      render: (avatar) => (
+        avatar ? <img src={avatar} alt="avatar" style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
+          : <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#bbb', fontSize: 18 }}>?</div>
+      ),
+    },
+    {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',

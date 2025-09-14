@@ -12,7 +12,7 @@ const ContactForm = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
-  // 回填表单
+  // re fill
   useEffect(() => {
     if (id) {
       const contact = getContactById(id);
@@ -29,17 +29,38 @@ const ContactForm = () => {
           ]);
         }
       }
+    } else {
+      setFileList([]);
     }
   }, [form, id]);
 
+  // base64
+  const getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const handleUploadChange = async ({ fileList: newFileList }) => {
+    if (newFileList.length > 0) {
+      const file = newFileList[0];
+      if (!file.url && file.originFileObj) {
+        file.url = await getBase64(file.originFileObj);
+      }
+      setFileList([file]);
+    } else {
+      setFileList([]);
+    }
+  };
 
   const onFinish = (values) => {
-    const avatar = fileList[0]?.url || fileList[0]?.response?.url || '';
+    const avatar = fileList[0]?.url || '';
     if (id) {
-
       saveContact({ id, ...values, avatar });
     } else {
-
       const newId = Date.now().toString();
       saveContact({ id: newId, ...values, avatar });
     }
@@ -55,18 +76,13 @@ const ContactForm = () => {
         message.warning('No contact to update.');
         return;
       }
-      const avatar = fileList[0]?.url || fileList[0]?.response?.url || '';
+      const avatar = fileList[0]?.url || '';
       saveContact({ id, ...values, avatar });
-      message.success('Update successful！');
+      message.success('Update successful!');
       navigate('/');
-    } catch (e) {
-      // 校验失败
-    }
+    } catch (e) { }
   };
 
-  const handleUploadChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
 
   return (
     <div style={{ maxWidth: 500, margin: '0 auto' }}>
