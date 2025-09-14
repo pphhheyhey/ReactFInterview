@@ -1,3 +1,66 @@
+# How to use
+1.
+git clone......
+cd react-address-book
+
+2.Install dependencies and Start the development server
+npm start
+
+3.open to brower
+
+Notes
+- This project is frontend-only, no backend required
+- To reset all data, simply clear your browser's localStorage,  no default data. Need to add it self.
+
+
+## Features
+- CRUD for contacts
+- Data persistence with browser localStorage
+- Avatar upload (base64 storage)
+- Form validation and data backfill
+- Fuzzy search and filtering in the list
+- Responsive and modern UI
+
+## Usage
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the project
+
+```bash
+npm start
+```
+
+### 3. Features Overview
+- The home page displays the contact list, supporting fuzzy search, edit, and delete
+- Click "Add" or "Edit" to enter the form page, where you can fill in or modify contact info and upload an avatar
+- All data is stored in browser localStorage, so it persists after refresh
+
+### 4. Tech Stack
+- React 18
+- Ant Design 5
+- React Router v6
+
+### 5. Project Structure
+```
+react-address-book/
+  ├─ src/
+  │   ├─ pages/
+  │   │   ├─ ContactListPage/   # Contact list page
+  │   │   ├─ ContactFormPage/   # Contact form page
+  │   │   └─ Layout/            # Layout and navigation
+  │   ├─ utils/request.js       # Local storage utilities
+  │   └─ router/index.js        # Router config
+  └─ ...
+```
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
