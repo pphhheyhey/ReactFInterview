@@ -1,6 +1,6 @@
 ## How to use
 1.
-git clone......
+git clone https://github.com/pphhheyhey/ReactFInterview.git
 cd react-address-book
 
 2.Install dependencies and Start the development server
