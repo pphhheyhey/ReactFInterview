@@ -1,4 +1,4 @@
-# How to use
+## How to use
 1.
 git clone......
 cd react-address-book
