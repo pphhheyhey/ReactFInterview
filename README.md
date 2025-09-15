@@ -1,15 +1,12 @@
 ## How to use
-1.
-git clone https://github.com/pphhheyhey/ReactFInterview.git
-cd react-address-book
-
-2.Install dependencies and Start the development server
+1.git clone https://github.com/pphhheyhey/ReactFInterview.git
+2.cd react-address-book
+3.Install dependencies and Start the development server
 npm start
+4.open to brower
 
-3.open to brower
-
-Notes
-- This project is frontend-only, no backend required
+## Notes
+- This project is frontend-only, no backend required，no login-role
 - To reset all data, simply clear your browser's localStorage,  no default data. Need to add it self.
 
 
